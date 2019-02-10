@@ -30,11 +30,24 @@ npm i razer
 
 ## Getting Started
 
+Basic usage:
+
 ```js
 const razer = require('razer')
 
 razer('Nice butt!')
 ```
+
+How to use for production:
+
+```js
+process.env.NODE_ENV = 'prod';   // or 'production'
+
+const razer = require('razer')
+
+razer('Nice butt!')
+```
+
 
 ## Maintainers
 
