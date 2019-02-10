@@ -53,6 +53,10 @@
     "type": "git",
     "url": "git+https://github.com/lemon-sour/razer.git"
   },
+  "keywords": [
+    "nodejs",
+    "console.log"
+  ],
   "author": "hisasann",
   "license": "MIT",
   "bugs": {
