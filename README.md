@@ -8,6 +8,11 @@
   <a href="https://www.npmjs.com/package/razer"><img src="https://badgen.net/npm/license/razer" alt="License"></a>
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://reactjs.org/docs/how-to-contribute.html#your-first-pull-request)
 
+## Why razer?
+
+- Easy to use
+- Fancy output with fallback for minimal environments
+- If process.env.NODE_ENV is 'prod' or 'production', console.log will not run
 
 ## Installation
 
@@ -23,7 +28,6 @@ Using npm:
 npm i razer
 ```
 
-
 ## Getting Started
 
 ```js
@@ -31,7 +35,6 @@ const razer = require('razer')
 
 razer('Nice butt!')
 ```
-
 
 ## Maintainers
 
