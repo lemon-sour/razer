@@ -35,7 +35,7 @@ Basic usage:
 ```js
 const razer = require('razer')
 
-razer('Nice butt!')
+razer('Hello Razer!')
 ```
 
 How to use for production:
@@ -45,7 +45,7 @@ process.env.NODE_ENV = 'prod';   // or 'production'
 
 const razer = require('razer')
 
-razer('Nice butt!')
+razer('Nice butt!')   // Razer as console.log will not be executed
 ```
 
 
