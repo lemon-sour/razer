@@ -1,15 +1,5 @@
 import razer, { CONSOLE_LOG } from '../src/index'
 
-/**
- * Process インターフェイス
- */
-interface Process {
-  server: boolean
-  client: boolean
-  env: any
-}
-declare const process: Process
-
 describe('index razer test', () => {
   test('引数なしパターン', () => {
     expect.assertions(2)

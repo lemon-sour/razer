@@ -5,16 +5,6 @@
 import C from './common/constants'
 import { IConsoleLog, IOptions, INoop } from '../types/index'
 
-/**
- * Process インターフェイス
- */
-interface Process {
-  server: boolean
-  client: boolean
-  env: any
-}
-declare const process: Process
-
 /** CONSOLE_LOG 関数 */
 export const CONSOLE_LOG: IConsoleLog = console.log.bind(console)
 /** noop 関数 */
