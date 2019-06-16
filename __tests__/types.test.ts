@@ -1,4 +1,4 @@
-import razer from '../types/index'
+import razer, { CONSOLE_LOG } from '../types/index'
 
 describe('types test', () => {
   test('types/index.d.ts', () => {

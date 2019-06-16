@@ -23,15 +23,15 @@ const defaultOptions: IOptions = {
  * @param specifiedLogger
  */
 /** オーバーロード */
-// text が来たらすぐに console.log する
-function razer(text: string): void
+// string が来たらすぐに console.log する
+function razer(...args: string[]): void
 // opts が来たら状況に合わせて関数を返す
 function razer(opts?: IOptions, specifiedLogger?: any): IConsoleLog | INoop
 /** オーバーロードの実装 */
 function razer(textORopts?: any, specifiedLogger?: any): any {
-  // 第一引数が string の場合は、即座に cconsole.log して処理を抜ける
+  // 第一引数が string の場合は、即座に console.log して処理を抜ける
   if (typeof textORopts === 'string') {
-    console.log(textORopts)
+    console.log(...arguments)
     return
   }
 

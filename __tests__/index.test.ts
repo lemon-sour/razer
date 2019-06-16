@@ -1,7 +1,16 @@
 import razer, { CONSOLE_LOG } from '../src/index'
 
 describe('index razer test', () => {
-  test('引数なしパターン', () => {
+  test('見る用', () => {
+    expect.assertions(1)
+
+    console.log('text', 'text2', 'text3')
+    razer('text', 'text2', 'text3')
+
+    expect(true).toBe(true)
+  })
+
+  test('引数が string 1個', () => {
     expect.assertions(2)
 
     // https://medium.com/@akameco/jest%E3%81%A7console-log%E3%82%92%E3%83%A2%E3%83%83%E3%82%AF%E3%81%99%E3%82%8B-fd6cd61bf926
@@ -11,6 +20,39 @@ describe('index razer test', () => {
 
     expect(console.log).toBeCalled()
     expect(spyLog.mock.calls[0][0]).toBe('text')
+
+    spyLog.mockReset()
+    spyLog.mockRestore()
+  })
+
+  test('引数が string 2個', () => {
+    expect.assertions(3)
+
+    // https://medium.com/@akameco/jest%E3%81%A7console-log%E3%82%92%E3%83%A2%E3%83%83%E3%82%AF%E3%81%99%E3%82%8B-fd6cd61bf926
+    const spyLog = jest.spyOn(console, 'log')
+    spyLog.mockImplementation(x => x)
+    razer('text', 'text2')
+
+    expect(console.log).toBeCalled()
+    expect(spyLog.mock.calls[0][0]).toBe('text')
+    expect(spyLog.mock.calls[0][1]).toBe('text2')
+
+    spyLog.mockReset()
+    spyLog.mockRestore()
+  })
+
+  test('引数が string 3個', () => {
+    expect.assertions(4)
+
+    // https://medium.com/@akameco/jest%E3%81%A7console-log%E3%82%92%E3%83%A2%E3%83%83%E3%82%AF%E3%81%99%E3%82%8B-fd6cd61bf926
+    const spyLog = jest.spyOn(console, 'log')
+    spyLog.mockImplementation(x => x)
+    razer('text', 'text2', 'text3')
+
+    expect(console.log).toBeCalled()
+    expect(spyLog.mock.calls[0][0]).toBe('text')
+    expect(spyLog.mock.calls[0][1]).toBe('text2')
+    expect(spyLog.mock.calls[0][2]).toBe('text3')
 
     spyLog.mockReset()
     spyLog.mockRestore()

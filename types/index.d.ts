@@ -10,8 +10,13 @@ export * from './IOptions'
 export * from './INoop'
 
 /**
- * @file razer インターフェイス
+ * console.log の実態
  */
+import { IConsoleLog } from './IConsoleLog'
+export const CONSOLE_LOG: IConsoleLog
 
+/**
+ * razer インターフェイス
+ */
 export default function razer(textORopts?: any, specifiedLogger?: any): any
 
