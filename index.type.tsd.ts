@@ -14,6 +14,11 @@ expectType<void>(razer({}, 'foo'))
 expectType<void>(razer([], 'foo'))
 expectType<void>(razer(1, 2))
 expectType<void>(razer(1, 2, 3))
+expectType<void>(razer(true))
+expectType<void>(razer(true, false))
+expectType<void>(razer({
+  hoge: 'foo'
+}))
 
 expectType<INoop>(razer({ isSSR: true } as IOptions))
 expectType<INoop>(razer({} as IOptions))

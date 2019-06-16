@@ -24,4 +24,4 @@ export const CONSOLE_LOG: IConsoleLog
 // via https://stackoverflow.com/questions/13551001/typescript-mutiple-call-signature-for-exported-function
 export default function razer(opts: IOptions, specifiedLogger?: any): IConsoleLog | INoop
 // via https://stackoverflow.com/questions/29382389/defining-array-with-multiple-types-in-typescript
-export default function razer(...args: (string | number | object | [])[]): void
+export default function razer(...args: (string | number | boolean | object | [])[]): void
