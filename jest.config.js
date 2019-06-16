@@ -11,8 +11,10 @@ module.exports = {
     "json",
     "node"
   ],
+  "silent": false,
+  "verbose": false,
   "coverageDirectory": "./coverage/",
-  "collectCoverage": false,
+  "collectCoverage": true,
   "collectCoverageFrom": [
     "src/**/*.{ts,tsx}"
   ]
