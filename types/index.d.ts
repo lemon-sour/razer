@@ -2,12 +2,15 @@
  * @file インターフェイスのエントリーポイント
  */
 
-// augment typings of NodeJS.Process
-import './process'
-
 export * from './IConsoleLog'
 export * from './IOptions'
 export * from './INoop'
+
+// augment typings of NodeJS.Process
+import './process'
+
+import { IOptions } from './IOptions'
+import { INoop } from './INoop'
 
 /**
  * console.log の実態
@@ -18,5 +21,6 @@ export const CONSOLE_LOG: IConsoleLog
 /**
  * razer インターフェイス
  */
-export default function razer(textORopts?: any, specifiedLogger?: any): any
-
+// via https://stackoverflow.com/questions/13551001/typescript-mutiple-call-signature-for-exported-function
+export default function razer(...args: string[]): void
+export default function razer(opts?: IOptions, specifiedLogger?: any): IConsoleLog | INoop
