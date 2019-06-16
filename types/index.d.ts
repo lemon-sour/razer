@@ -1,1 +1,8 @@
-export default function razer(...args:any[]): void;
+/**
+ * @file インターフェイスのエントリーポイント
+ */
+
+export * from './IConsoleLog'
+export * from './IOptions'
+export * from './INoop'
+export * from './razer'

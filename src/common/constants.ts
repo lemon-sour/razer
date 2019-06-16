@@ -1,4 +1,8 @@
 /**
+ * @file 定数ファイル
+ */
+
+/**
  * プロジェクト名
  * @type {string}
  */
@@ -9,10 +13,13 @@ const pjName: string = require('../../package.json').name
  */
 const Constants = {
   pjName,
+
+  isSSR: false,
+  isCSR: false,
+  isProd: false,
+
   PROD: 'prod',
   PRODUCTION: 'production'
 }
-
-console.log('Constants: ', Constants)
 
 export default Constants
