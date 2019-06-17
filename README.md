@@ -1,6 +1,6 @@
 <p align="center">
   <h1>:bento: razer</h1>
-  <span>Elegant Console Logger for Node.js</span>
+  <span>Elegant Console Logger for Node.js and browser</span>
 </p>
 
   <a href="https://www.npmjs.com/package/razer"><img src="https://badgen.net/npm/dm/razer" alt="Downloads"></a>
@@ -12,7 +12,7 @@
 
 - Easy to use
 - Fancy output with fallback for minimal environments
-- If process.env.NODE_ENV is 'prod' or 'production', console.log will not run
+- If the argument function returns false, console.log will not be executed
 
 ## Installation
 
@@ -32,20 +32,36 @@ npm i razer
 
 Basic usage:
 
-```js
-const razer = require('razer')
+```typescript
+import razer from 'razer'
 
 razer('Hello Razer!')
 ```
 
 How to use for production:
 
-```js
-process.env.NODE_ENV = 'prod';   // or 'production'
+```typescript
+import razer from 'razer'
 
-const razer = require('razer')
+process.env.NODE_ENV = 'production'
+const logger = razer(() => {
+  process.env.NODE_ENV !== 'production'   // false
+})
 
-razer('Nice butt!')   // Razer as console.log will not be executed
+logger('Razer as console.log will not be executed')
+```
+
+Other using:
+
+```typescript
+import razer from 'razer'
+
+process.env.NODE_ENV = 'development'
+const logger = razer(() => {
+  process.env.NODE_ENV !== 'production'   // true
+})
+
+logger('Razer as console.log will be executed')
 ```
 
 
