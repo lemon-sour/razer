@@ -3,7 +3,7 @@
  */
 
 import { expectType } from 'tsd'
-import razer, { CONSOLE_LOG, IConsoleLog, INoop, IOptions } from './types'
+import razer, { CONSOLE_LOG, IConsoleLog, INoop } from './types'
 
 expectType<void>(razer('foo', 'bar'))
 expectType<void>(razer('foo', 1))
@@ -20,12 +20,16 @@ expectType<void>(razer({
   hoge: 'foo'
 }))
 
-expectType<INoop>(razer({ isSSR: true } as IOptions))
-expectType<INoop>(razer({} as IOptions))
+expectType<IConsoleLog>(razer(() => {
+  return true
+}))
+expectType<INoop>(razer(() => {
+  return false
+}))
 
-process.server = true
-expectType<IConsoleLog>(razer({ isSSR: true } as IOptions, CONSOLE_LOG))
-const opts: IOptions = {
-  isSSR: true
-}
-expectType<IConsoleLog>(razer(opts))
+expectType<IConsoleLog>(razer(() => {
+  return true
+}, CONSOLE_LOG))
+expectType<INoop>(razer(() => {
+  return false
+}, CONSOLE_LOG))

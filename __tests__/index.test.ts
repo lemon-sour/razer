@@ -28,7 +28,6 @@ describe('index razer test', () => {
   test('引数が string 2個', () => {
     expect.assertions(3)
 
-    // https://medium.com/@akameco/jest%E3%81%A7console-log%E3%82%92%E3%83%A2%E3%83%83%E3%82%AF%E3%81%99%E3%82%8B-fd6cd61bf926
     const spyLog = jest.spyOn(console, 'log')
     spyLog.mockImplementation(x => x)
     razer('text', 'text2')
@@ -44,7 +43,6 @@ describe('index razer test', () => {
   test('引数が string 3個', () => {
     expect.assertions(4)
 
-    // https://medium.com/@akameco/jest%E3%81%A7console-log%E3%82%92%E3%83%A2%E3%83%83%E3%82%AF%E3%81%99%E3%82%8B-fd6cd61bf926
     const spyLog = jest.spyOn(console, 'log')
     spyLog.mockImplementation(x => x)
     razer('text', 'text2', 'text3')
@@ -58,109 +56,41 @@ describe('index razer test', () => {
     spyLog.mockRestore()
   })
 
-  test('第一引数に空のオブジェクト、第二引数にモック用の fn', () => {
+  test('第一引数に true を返す fn 、第二引数にモック用のロガー', () => {
     expect.assertions(1)
 
     const mockFn = jest.fn(CONSOLE_LOG)
-    const logger = razer({}, mockFn)
+    const logger = razer((): boolean => {
+      return true
+    }, mockFn)
     logger('test')
 
     expect(mockFn).toHaveBeenCalled()
   })
 
-  test('isSSR が true で process.server が true', () => {
+  test('process.server が true', () => {
     expect.assertions(1)
 
     const mockFn = jest.fn(CONSOLE_LOG)
     process.server = true
-    const logger = razer(
-      {
-        isSSR: true
-      },
-      mockFn
-    )
+    const logger = razer((): boolean => {
+      return process.server
+    }, mockFn)
     logger('test')
 
     expect(mockFn).toHaveBeenCalled()
   })
 
-  test('isSSR が true で process.server が false', () => {
+  test('process.server が false', () => {
     expect.assertions(1)
 
     const mockFn = jest.fn(CONSOLE_LOG)
     process.server = false
-    const logger = razer(
-      {
-        isSSR: true
-      },
-      mockFn
-    )
+    const logger = razer((): boolean => {
+      return process.server
+    }, mockFn)
     logger('test')
 
     expect(mockFn).not.toHaveBeenCalled()
-  })
-
-  test('isCSR が true で process.client が true', () => {
-    expect.assertions(1)
-
-    const mockFn = jest.fn(CONSOLE_LOG)
-    process.client = true
-    const logger = razer(
-      {
-        isCSR: true
-      },
-      mockFn
-    )
-    logger('test')
-
-    expect(mockFn).toHaveBeenCalled()
-  })
-
-  test('isCSR が true で process.client が false', () => {
-    expect.assertions(1)
-
-    const mockFn = jest.fn(CONSOLE_LOG)
-    process.client = false
-    const logger = razer(
-      {
-        isCSR: true
-      },
-      mockFn
-    )
-    logger('test')
-
-    expect(mockFn).not.toHaveBeenCalled()
-  })
-
-  test('isProd が true で process.env.NODE_ENV が prod', () => {
-    expect.assertions(1)
-
-    const mockFn = jest.fn(CONSOLE_LOG)
-    process.env.NODE_ENV = 'prod'
-    const logger = razer(
-      {
-        isProd: true
-      },
-      mockFn
-    )
-    logger('test')
-
-    expect(mockFn).toHaveBeenCalled()
-  })
-
-  test('isProd が true で process.env.NODE_ENV が production', () => {
-    expect.assertions(1)
-
-    const mockFn = jest.fn(CONSOLE_LOG)
-    process.env.NODE_ENV = 'production'
-    const logger = razer(
-      {
-        isProd: true
-      },
-      mockFn
-    )
-    logger('test')
-
-    expect(mockFn).toHaveBeenCalled()
   })
 })
