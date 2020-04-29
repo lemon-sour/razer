@@ -15,7 +15,7 @@ describe('index razer test', () => {
 
     // https://medium.com/@akameco/jest%E3%81%A7console-log%E3%82%92%E3%83%A2%E3%83%83%E3%82%AF%E3%81%99%E3%82%8B-fd6cd61bf926
     const spyLog = jest.spyOn(console, 'log')
-    spyLog.mockImplementation(x => x)
+    spyLog.mockImplementation((x) => x)
     razer('text')
 
     expect(console.log).toBeCalled()
@@ -29,7 +29,7 @@ describe('index razer test', () => {
     expect.assertions(3)
 
     const spyLog = jest.spyOn(console, 'log')
-    spyLog.mockImplementation(x => x)
+    spyLog.mockImplementation((x) => x)
     razer('text', 'text2')
 
     expect(console.log).toBeCalled()
@@ -44,7 +44,7 @@ describe('index razer test', () => {
     expect.assertions(4)
 
     const spyLog = jest.spyOn(console, 'log')
-    spyLog.mockImplementation(x => x)
+    spyLog.mockImplementation((x) => x)
     razer('text', 'text2', 'text3')
 
     expect(console.log).toBeCalled()

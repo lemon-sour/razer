@@ -19,7 +19,7 @@ const Constants = {
   isProd: false,
 
   PROD: 'prod',
-  PRODUCTION: 'production'
+  PRODUCTION: 'production',
 }
 
 export default Constants
