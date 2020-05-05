@@ -6,7 +6,7 @@
  * プロジェクト名
  * @type {string}
  */
-const pjName: string = require('../../package.json').name
+const pjName: string = require('../../package.json').name;
 
 /**
  * 定数
@@ -20,6 +20,6 @@ const Constants = {
 
   PROD: 'prod',
   PRODUCTION: 'production',
-}
+};
 
-export default Constants
+export default Constants;
