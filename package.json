@@ -1,6 +1,6 @@
 {
   "name": "razer",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "Elegant Console Logger for Node.js and browser",
   "main": "lib/index.js",
   "types": "types/index.d.ts",
@@ -13,7 +13,7 @@
     "lint": "prettier --list-different \"{src,__tests__}/**/*.{js,ts,tsx,json}\"",
     "lint:format": "prettier --write \"{src,__tests__}/**/*.{js,ts,tsx,json}\"",
     "lint-staged": "lint-staged",
-    "release": "standard-version && git push --follow-tags && npm publish"
+    "release": "standard-version && git push --follow-tags && npm publish #relaseは npm run relase で行うこと、yarnは使わない"
   },
   "lint-staged": {
     "linters": {
