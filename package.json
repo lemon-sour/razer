@@ -46,7 +46,7 @@
   },
   "homepage": "https://github.com/lemon-sour/razer#readme",
   "dependencies": {
-    "lint-staged": "^10.2.2"
+    "lint-staged": "^11.2.3"
   },
   "devDependencies": {
     "@types/jest": "^25.2.1",
